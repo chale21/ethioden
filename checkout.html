@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional CSS -->
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Order Summary</h2>
+
+        <!-- Static example of order summary -->
+        <ul id="order-summary">
+            <li>Bacon Cheeseburger - $9.99</li>
+            <li>Margherita Pizza - $10.99</li>
+        </ul>
+
+        <h3>Total: $20.98</h3>
+
+        <!-- User information form -->
+        <form id="checkout-form">
+            <label for="name">Name:</label><br/>
+            <input type="text" id="name" required><br/>
+
+            <label for="address">Address:</label><br/>
+            <input type="text" id="address" required><br/>
+
+            <button type="submit">Place Order</button> <!-- Placeholder -->
+        </form>
+
+    </main>
+    <footer>
+        <p>&copy; 2023 Food Delivery Service</p>
+    </footer>
+</body>
+</html>
