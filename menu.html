@@ -11,8 +11,8 @@
         <h1>Restaurant Name</h1>
         <nav>
             <ul>
-                <li><a href="food.html">Home</a></li>
-                <li><a href="cart.html">Cart</a></li>
+                <li><a href="food.html" title="To See  Available Restaurants click here">Home</a></li>
+                <li><a href="cart.html" title="To See Items in The Cart click here">Cart</a></li>
             </ul>
         </nav>
     </header>
@@ -24,26 +24,41 @@
                 <img src="pizzza.jpg" alt="Margherita Pizza" width="200">
                 <p>Description: Classic pizza with tomatoes and mozzarella.</p>
                 <p>Price: $10.99</p>
-                <button>Add to Cart</button> 
+                <button onclick="myfunction2()" id="d">Add to Cart</button> 
             </li>
             <li>
                 <h3>pasta</h3>
                 <img src="pasta.jpg" alt="pasta" width="200">
                 <p>Description: mixed of diffirent type of pasta.</p>
                 <p>Price: $12.99</p>
-                <button>Add to Cart</button> 
+                <button onclick="myfunction1()" id="f">Add to Cart</button> 
             </li>
             <li>
                 <h3>Bread</h3>
                 <img src="bread.jpg" alt="Bread" width="200">
                 <p>Description: white floor of Bread</p>
                 <p>Price: $9.99</p>
-                <button>Add to Cart</button> 
+                <button onclick="myfunction()" id="e">Add to Cart</button> 
             </li>
         </ul>
     </main>
     <footer>
         <p>&copy; 2023 Food Delivery Service</p>
     </footer>
+    <script>
+        let x=document.getElementById("cart-items")
+        function myfunction()
+    {
+  document.getElementById("e").innerHTML="bread add to your cart"
+    }
+        function myfunction1()
+    {
+  document.getElementById("f").innerHTML="pasta add to your cart"
+    }
+        function myfunction2()
+    {
+  document.getElementById("d").innerHTML="pizza add to your cart"
+    }
+    </script>
 </body>
 </html>
