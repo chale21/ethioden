@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Restaurant Name</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <header>
         <h1>Restaurant Name</h1>
         <nav>
             <ul>
-                <li><a href="food.html" title="To See  Available Restaurants click here">Home</a></li>
-                <li><a href="cart.html" title="To See Items in The Cart click here">Cart</a></li>
+                <li><a href="index.html" title="To see available restaurants, click here">Home</a></li>
+                <li><a href="cart.html" title="To see items in the cart, click here">Cart</a></li>
             </ul>
         </nav>
     </header>
@@ -21,24 +21,24 @@
         <ul>
             <li>
                 <h3>Margherita Pizza</h3>
-                <img src="pizzza.jpg" alt="Margherita Pizza" width="200">
+                <img src="pizza.jpg" alt="Margherita Pizza" width="200">
                 <p>Description: Classic pizza with tomatoes and mozzarella.</p>
                 <p>Price: $10.99</p>
-                <button onclick="myfunction2()" id="d">Add to Cart</button> 
+                <button onclick="addToCart('Margherita Pizza', 10.99, 'd')" id="d" title="Add Pizza to Cart">Add to Cart</button> 
             </li>
             <li>
-                <h3>pasta</h3>
-                <img src="pasta.jpg" alt="pasta" width="200">
-                <p>Description: mixed of diffirent type of pasta.</p>
+                <h3>Pasta</h3>
+                <img src="pasta.jpg" alt="Pasta" width="200">
+                <p>Description: A mix of different types of pasta.</p>
                 <p>Price: $12.99</p>
-                <button onclick="myfunction1()" id="f">Add to Cart</button> 
+                <button onclick="addToCart('Pasta', 12.99, 'f')" id="f" title="Add Pasta to Cart">Add to Cart</button> 
             </li>
             <li>
                 <h3>Bread</h3>
                 <img src="bread.jpg" alt="Bread" width="200">
-                <p>Description: white floor of Bread</p>
+                <p>Description: White flour bread.</p>
                 <p>Price: $9.99</p>
-                <button onclick="myfunction()" id="e">Add to Cart</button> 
+                <button onclick="addToCart('Bread', 9.99, 'e')" id="e" title="Add Bread to Cart">Add to Cart</button> 
             </li>
         </ul>
     </main>
@@ -46,19 +46,12 @@
         <p>&copy; 2023 Food Delivery Service</p>
     </footer>
     <script>
-        let x=document.getElementById("cart-items")
-        function myfunction()
-    {
-  document.getElementById("e").innerHTML="bread add to your cart"
-    }
-        function myfunction1()
-    {
-  document.getElementById("f").innerHTML="pasta add to your cart"
-    }
-        function myfunction2()
-    {
-  document.getElementById("d").innerHTML="pizza add to your cart"
-    }
+        function addToCart(itemName, price, buttonId) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: itemName, price: price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            document.getElementById(buttonId).textContent = itemName + " added to cart!";
+        }
     </script>
 </body>
 </html>

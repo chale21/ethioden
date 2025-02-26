@@ -4,32 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <header>
-        <h1> Cart</h1>
+        <h1>Your Cart</h1>
         <nav>
             <ul>
-                <li><a href="food.html" title="to see Available Restaurants press Home">Home</a></li>
-                <li><a href="checkout.html" title="to see order-summary and to fill your information press checkout">Checkout</a></li>
+                <li><a href="index.html" title="To see available restaurants, click Home">Home</a></li>
+                <li><a href="checkout.html" title="Proceed to checkout, click Checkout">Checkout</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Items in  Cart</h2>
-        <ul id="cart-items">
-        
-            <li>Bread - $9.99</li>
-            <li>Margherita Pizza - $10.99</li>
-        </ul>
-
-        <h3>Total: $20.98</h3><br>
-
-        <a href="menu.html" title="To Checkout Out Menu Items click here">Proceed to Checkout</a>
+        <h2>Items in your cart</h2>
+        <ul id="cart-items"></ul>
+        <h3>Total: <span id="cart-total"></span></h3>
+        <a href="checkout.html" id="checkout-link" title="to see order summary and to fill your information click">Proceed to Checkout</a>
     </main>
+    
     <footer>
         <p>&copy; 2023 Food Delivery Service</p>
     </footer>
+
+    <script>
+        // Function to load and display items in the cart from localStorage
+        function loadCartItems() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cartItems = document.getElementById("cart-items");
+            let total = 0;
+
+            // Clear existing cart content
+            cartItems.innerHTML = '';
+
+            // Add each item to the cart list
+            cart.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            // Update the total price
+            document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Load cart items on page load
+        window.onload = loadCartItems;
+    </script>
 </body>
 </html>

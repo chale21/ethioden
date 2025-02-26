@@ -4,51 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <header>
         <h1>Checkout</h1>
         <nav>
             <ul>
-                <li><a href="food.html" title="To See  Available Restaurants click here">Home</a></li>
-                <li><a href="cart.html" title="To See Items in The Cart click here" >Cart</a></li>
+                <li><a href="index.html" title="To See Available Restaurants click here">Home</a></li>
+                <li><a href="cart.html" title="To See Items in The Cart click here">Cart</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h2>Order Summary</h2>
 
-        
         <ul id="order-summary">
-            <li>Bread - $9.99</li>
-            <li>Margherita Pizza - $10.99</li>
+            <li data-price="9.99">Bread - $9.99</li>
+            <li data-price="10.99">Margherita Pizza - $10.99</li>
         </ul>
 
-        <h3>Total: $20.98</h3>
+        <h3>Total: <span id="total-price"></span></h3>
 
-        
         <form id="checkout-form">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" required><br>
-
-            <label for="address">Address:</label><br>
-            <input type="text" id="address" required><br>
-
-            <button type="submit" onclick="myfunction3()" id="k">submit</button> <br>
-            <a href="menu.html?restaurant=PizzaPlace" title="To See Menu Items click here">MENU</a>
+            <label for="name" id="name-label">Name:</label><br>
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+        
+            <label for="address" id="address-label">Address:</label><br>
+            <input type="text" id="address" placeholder="Enter your address" required><br>
+        
+            <button type="submit" id="k">Submit</button><br>
+        
+            <a href="menu.html?restaurant=PizzaPlace" title="To See Menu Items click here" id="menu-link">MENU</a>
         </form>
-
+        
     </main>
     <footer>
         <p>&copy; 2023 Food Delivery Service</p>
     </footer>
+
     <script>
-        
-        function myfunction3()
-    {
-  document.getElementById("k").innerHTML="Submitted Successfully"
-    }
+        // Function to calculate total price dynamically
+        function calculateTotal() {
+            let total = 0;
+            document.querySelectorAll("#order-summary li").forEach(item => {
+                total += parseFloat(item.getAttribute("data-price"));
+            });
+            document.getElementById("total-price").textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Function to handle form submission
+        document.getElementById("checkout-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevents page refresh
+            document.getElementById("k").textContent = "Submitted Successfully";
+        });
+
+        // Call function to set the initial total price
+        calculateTotal();
     </script>
 </body>
 </html>

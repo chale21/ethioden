@@ -1,22 +1,188 @@
-body {
-    font-family: Arial, sans-serif;
+
+/* General Styles */
+
+* {
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Add a semi-transparent effect for readability */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
 header {
     background-color: #f8f8f8;
     padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation Bar */
 nav ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 15px;
+    margin: 0 15px;
 }
 
+/* Style for the navigation links */
+nav ul li a {
+    color: #ff5733; /* Change the text color to a desired color (e.g., #ff5733 is a reddish-orange) */
+    text-decoration: none; /* This removes the underline */
+    font-size: 16px; /* Optional: Adjust the font size */
+    padding: 10px;
+    transition: color 0.3s; /* Optional: Adds a smooth color transition effect */
+}
+
+/* Combined hover effect for the links */
+nav ul li a:hover {
+    color: #00aaff; /* Change the text color when hovered (e.g., blue color) */
+    background-color: #555; /* Background color on hover */
+    border-radius: 5px; 
+}
+
+/* Menu Items */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f4f4f4;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    background: #ddd;
+}
+
+/* Order Summary */
+#order-summary li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Buttons */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Footer */
 footer {
     text-align: center;
     margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+/* Style for the 'Total:' text */
+h3 {
+    color: #ff7433; /* Change this to your preferred color */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Style for the 'Proceed to Checkout' link */
+#checkout-link {
+    text-decoration: none; /* Remove underline */
+    color: #28a768; 
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Hover effect for the 'Proceed to Checkout' link */
+#checkout-link:hover {
+    color: #218838; /* Darker green on hover */
+    text-decoration: underline; 
+}
+
+/* Change color of the Name label */
+#name-label {
+    color: #d4ff00;  /* Change to  preferred color */
+}
+
+/* Change color of the Address label */
+#address-label {
+    color: #28a745;  
+}
+
+/* Change color of the Menu link */
+#menu-link {
+    color: #ff5733; 
+}
+
+/* Hover effects for the menu link */
+#menu-link:hover {
+    color: #c0392b;  /* Darker shade of red on hover */
+    text-decoration: underline;
+}
+
+/* Placeholder color */
+input::placeholder {
+    color: #777;  /* Change this to the  preferred color */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    ul li {
+        font-size: 18px;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    button {
+        width: 100%;
+    }
 }

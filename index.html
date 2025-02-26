@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Service</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <h1>Food Delivery Service</h1>
+        <p><img src="food.jpg" alt="Food Delivery Service"></p>
+        <p>Welcome to Chale Food Delivery Service<br>
+            Here are available restaurants.<br>
+            Please visit them and order your choice by 
+            following the instructions.
+        </p> 
+        <nav>
+            <ul>
+                <li><a href="index.html" title="To see available restaurants, click Home">Home</a></li>
+                <li><a href="cart.html" title="To see items in your cart, click Cart" aria-label="View Cart">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="checkout.html" title="To see order summary and fill in your information, click Checkout">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Available Restaurants</h2>
+        <ul>
+            <li>
+                <img src="pizza.jpg" alt="Pizza Place" width="50">
+                <a href="menu.html?restaurant=PizzaPlace" title="To see price and add to your cart, click here">Pizza Place</a>
+            </li>
+            <li>
+                <img src="pasta.jpg" alt="Pasta" width="50">
+                <a href="menu.html?restaurant=Pasta" title="To see price and add to your cart, click here">Pasta</a>
+            </li>
+            <li>
+                <img src="bread.jpg" alt="Bread" width="50">
+                <a href="menu.html?restaurant=Bread" title="To see price and add to your cart, click here">Bread</a>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2023 Food Delivery Service</p>
+    </footer>
+    <script>
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById("cart-count").textContent = cart.length;
+        }
+    
+        window.onload = updateCartCount;
+    </script>
+</body>
+</html>
